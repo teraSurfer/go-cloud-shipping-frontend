@@ -22,11 +22,11 @@ export default {
     ],
     vendorNavs: [
       {path: "/", name: "Home"},
-      {path: "/vendor", name: "Dashboard"},
+      {path: "/vendor/home", name: "Dashboard"},
     ],
     customerNavs: [
       {path: "/", name: "Home"},
-      {path: "/buyer", name: "Dashboard"}
+      {path: "/buyer/home", name: "Dashboard"}
     ]
   }),
   methods: {

@@ -1,7 +1,7 @@
 <template>
-  <b-row class="app-content py-2" >
+  <b-row class="app-content py-2">
     <sidebar />
-    <b-col sm="10" class="main-content px-0" >
+    <b-col sm="10" class="main-content px-0">
       <router-view />
     </b-col>
   </b-row>
@@ -44,9 +44,14 @@ export default {
             last_name: family_name,
             password: "4444"
           })
-          .then(console.log);
-        this.$store.dispatch("auth_module/SET_USER", { email, name });
-        window.location.href = "/buyer/home";
+          .then(res => {
+            this.$store.dispatch("auth_module/SET_USER", {
+              email,
+              name: `${given_name} ${family_name}`
+            });
+            console.log(res);
+            window.location.href = "/buyer/home";
+          });
       } else {
         this.$router.push({ path: "/login" });
       }
@@ -59,6 +64,7 @@ export default {
       if (!isLoggedIn || !isCustomer) {
         this.$router.push({ path: "/" });
       } else {
+        if(this.$route.path === '/buyer') this.$router.push({path: '/buyer/home'});
         return;
       }
     }

@@ -22,32 +22,48 @@ export default {
   data: () => ({
     vendorNavs: [
       {
-        path: '/vendor/home',
-        name: 'Home',
-        icon: 'home'
+        path: "/vendor/home",
+        name: "Home",
+        icon: "home"
       },
       {
-        path: '/vendor/orders',
-        name: 'Orders',
-        icon: 'luggage-cart'
+        path: "/vendor/orders",
+        name: "Orders",
+        icon: "luggage-cart"
       },
       {
-        path: '/vendor/update-price',
-        name: 'Price',
-        icon: 'money-bill-wave-alt'
+        path: "/vendor/update-price",
+        name: "Price",
+        icon: "money-bill-wave-alt"
       },
       {
-        path: '/vendor/profile',
-        name: 'Profile',
-        icon: 'user-cog'
+        path: "/vendor/profile",
+        name: "Profile",
+        icon: "user-cog"
       },
       {
-        path: '/vendor/scan',
-        name: 'Scan',
-        icon: 'qrcode'
+        path: "/vendor/scan",
+        name: "Scan",
+        icon: "qrcode"
       }
     ],
-    customerNavs: []
+    customerNavs: [
+      {
+        path: "/buyer/home",
+        name: "Home",
+        icon: "home"
+      },
+      {
+        path: "/buyer/orders",
+        name: "Orders",
+        icon: "luggage-cart"
+      },
+      {
+        path: "/buyer/profile",
+        name: "Profile",
+        icon: "user-cog"
+      }
+    ]
   }),
   computed: {
     getTitle() {
@@ -64,6 +80,6 @@ export default {
         return this.customerNavs;
       }
     }
-  },
+  }
 };
 </script>

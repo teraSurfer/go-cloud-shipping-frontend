@@ -18,11 +18,16 @@ const fetchOrderForCustomer = (id, email) => {
   return ajax.get(`/order?u_email=${email}&id=${id}`);
 }
 
+const fetchPincode = (pincode) => {
+  return ajax.get(`/pincode?${pincode}`);
+}
+
 export {
   ajax,
   fetchDivisions,
   fetchLeastPrice,
   fetchOrderForCustomer,
+  fetchPincode,
   vendorServices,
   customerServices
 };

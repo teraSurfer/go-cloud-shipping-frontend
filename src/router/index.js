@@ -51,6 +51,33 @@ const routes = [
         component: () => import('@/components/vendor/Scan.vue')
       }
     ]
+  },
+  {
+    path: '/buyer',
+    name: 'Customer',
+    component: () => import('@/views/Customer.vue'),
+    children: [
+      {
+        path: '/buyer/home',
+        name: 'CustomerHome',
+        component: () => import('@/components/customer/Home.vue')
+      },
+      {
+        path: '/buyer/orders',
+        name: 'CustomerOrders',
+        component: () => import('@/components/customer/Orders.vue')
+      },
+      {
+        path: '/buyer/orders/:id/:u_email',
+        name: 'CustomerOrder',
+        component: () => import('@/components/customer/Order.vue')
+      },
+      {
+        path: '/buyer/profile',
+        name: 'CustomerProfile',
+        component: () => import('@/components/customer/Profile.vue')
+      }
+    ]
   }
 ]
 
