@@ -6,6 +6,6 @@ const addVendor = (vendor) => {
 
 const getOrders = (email) => {
   return ajax.get(`/orders?v_email=${email}`);
-} 
+}
 
 export { addVendor, getOrders };

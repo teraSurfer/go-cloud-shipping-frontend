@@ -1,7 +1,7 @@
 <template>
   <b-row class="app-content py-2" >
     <sidebar />
-    <b-col sm="10" class="main-content" >
+    <b-col sm="10" class="main-content px-0" >
       <router-view />
     </b-col>
   </b-row>
