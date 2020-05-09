@@ -41,11 +41,11 @@ export default {
     loading: false,
     items: [],
     fields: [
-      "id",
-      "u_email",
-      "v_email",
-      "o_date",
-      "v_mobile",
+      {key: "id", label: "ID", sortable: true},
+      {key: "u_email", label: "Customer Email"},
+      {key: "v_email", label: "Vendor Email"},
+      {key: "o_date", label: "Order Date"},
+      {key: "v_mobile", label: "Vendor Mobile"},
       "origin",
       "destination"
     ],
@@ -60,10 +60,10 @@ export default {
     fetchOrders: async function() {
       try {
         this.loading = true;
-        // const response = await customerServices.getOrders(this.$store.getters["auth_module/getUser"].email);
-        const response = await customerServices.getOrders(
-          "amit.vijapure@sjsu.edu"
-        );
+        const response = await customerServices.getOrders(this.$store.getters["auth_module/getUser"].email);
+        // const response = await customerServices.getOrders(
+        //   "amit.vijapure@sjsu.edu"
+        // );
         this.items = response.data.orders;
         this.rows = response.data.orders.length;
         this.loading = false;

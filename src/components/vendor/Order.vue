@@ -17,18 +17,54 @@
         <qrcode v-if="!loading" :value="value" />
       </div>
       <b-list-group v-if="!loading">
-        <b-list-group-item>Order Id: {{order.id}}</b-list-group-item>
-        <b-list-group-item>Customer Email: {{order.u_email}}</b-list-group-item>
-        <b-list-group-item>Order Date: {{order.o_date}}</b-list-group-item>
-        <b-list-group-item>Order Cost: {{order.price}}</b-list-group-item>
-        <b-list-group-item>Order Status: {{order.current_status}}</b-list-group-item>
-        <b-list-group-item>Order Weight: {{order.weight}}</b-list-group-item>
-        <b-list-group-item>Origin Address: {{order.o_address}}</b-list-group-item>
-        <b-list-group-item>Origin ZipCode: {{order.origin}}</b-list-group-item>
-        <b-list-group-item>Destination ZipCode: {{order.destination}}</b-list-group-item>
-        <b-list-group-item>Vendor Contact: {{order.v_mobile}}</b-list-group-item>
-        <b-list-group-item>Vendor Name: {{order.v_name}}</b-list-group-item>
-        <b-list-group-item>Vendor Email: {{order.v_email}}</b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Order Id:</strong>
+          <span>{{order.id}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Customer Email:</strong>
+          <span>{{order.u_email}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Order Date:</strong>
+          <span>{{order.o_date}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Order Cost:</strong>
+          <span>{{order.price}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Order Status:</strong>
+          <span>{{order.current_status}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Order Weight:</strong>
+          <span>{{order.weight}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Origin Address:</strong>
+          <span>{{order.o_address}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Origin ZipCode:</strong>
+          <span>{{order.origin}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Destination ZipCode:</strong>
+          <span>{{order.destination}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Vendor Contact:</strong>
+          <span>{{order.v_mobile}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Vendor Name:</strong>
+          <span>{{order.v_name}}</span>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex justify-content-between">
+          <strong>Vendor Email:</strong>
+          <span>{{order.v_email}}</span>
+        </b-list-group-item>
       </b-list-group>
     </b-card>
   </b-container>
@@ -40,7 +76,7 @@ export default {
   data: () => ({
     loading: false,
     order: {},
-    value: ''
+    value: ""
   }),
   created() {
     this.getOrder();
@@ -52,7 +88,10 @@ export default {
         const { id, u_email } = this.$route.params;
         const response = await fetchOrderForCustomer(id, u_email);
         this.order = response.data;
-        this.value = JSON.stringify({id: this.order.id, u_email: this.order.u_email});
+        this.value = JSON.stringify({
+          id: this.order.id,
+          u_email: this.order.u_email
+        });
         this.loading = false;
       } catch (err) {
         console.log(err);

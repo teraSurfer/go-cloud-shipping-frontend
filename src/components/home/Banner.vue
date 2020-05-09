@@ -46,7 +46,7 @@ export default {
     height: 100vh;
     overflow: hidden;
     z-index: -99;
-    background: url('../../assets/connections.png') no-repeat;
+    background: url('../../assets/scania_1.jpg') no-repeat;
     background-size: cover;
 }
 .banner-overlay {
@@ -57,7 +57,7 @@ export default {
     left: 0;
     z-index: -2;
     background: $dark;
-    opacity: .9;
+    opacity: .7;
 }
     .banner-content{
         display: block;

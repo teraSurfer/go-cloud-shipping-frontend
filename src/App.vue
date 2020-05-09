@@ -16,7 +16,7 @@ export default {
 
 <style lang="scss">
   @import "./scss/app.scss";
-
+  @import '~bootstrap-vue/src/index.scss';
   .app-content {
     height: calc(100vh - 56px);
     margin: 0;

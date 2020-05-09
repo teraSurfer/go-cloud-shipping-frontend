@@ -22,6 +22,10 @@ const fetchPincode = (pincode) => {
   return ajax.get(`/pincode?${pincode}`);
 }
 
+const chatWithBot = (userId, message) => {
+  return ajax.post('/lex', { user: userId, message });
+}
+
 export {
   ajax,
   fetchDivisions,
@@ -29,5 +33,6 @@ export {
   fetchOrderForCustomer,
   fetchPincode,
   vendorServices,
-  customerServices
+  customerServices,
+  chatWithBot
 };
