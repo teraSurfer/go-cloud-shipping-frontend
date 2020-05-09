@@ -9,8 +9,8 @@
 
 <script>
 import { handleHash } from "@/util/urlUtils.js";
-import { VENDOR } from "@/util/constants";
-import { vendorServices } from "@/services";
+import { CUSTOMER } from "@/util/constants";
+import { customerServices } from "@/services";
 import jdecode from "jwt-decode";
 import Sidebar from "@/components/common/Sidebar.vue";
 export default {
@@ -28,35 +28,35 @@ export default {
     loginUser: function(tokens) {
       if (tokens.idToken !== "") {
         this.$store.dispatch("auth_module/LOGGED_IN");
-        this.$store.dispatch("auth_module/SET_USER_TYPE", VENDOR);
+        this.$store.dispatch("auth_module/SET_USER_TYPE", CUSTOMER);
         this.$store.dispatch("auth_module/SET_ID_TOKEN", tokens.idToken);
         this.$store.dispatch(
           "auth_module/SET_ACCESS_TOKEN",
           tokens.accessToken
         );
         console.log(jdecode(tokens.idToken));
-        const { email, name, phone_number } = jdecode(tokens.idToken);
+        const { email, given_name, family_name } = jdecode(tokens.idToken);
 
-        vendorServices
-          .addVendor({
-            v_email: email,
-            name,
-            mobile: phone_number.replace("+1", ""),
+        customerServices
+          .addCustomer({
+            u_email: email,
+            first_name: given_name,
+            last_name: family_name,
             password: "4444"
           })
           .then(console.log);
         this.$store.dispatch("auth_module/SET_USER", { email, name });
-        window.location.href = "/vendor/home";
+        window.location.href = "/buyer/home";
       } else {
         this.$router.push({ path: "/login" });
       }
     },
     checkLogin: function() {
       const isLoggedIn = Boolean(this.$store.getters["auth_module/isLoggedIn"]);
-      const isVendor =
-        this.$store.getters["auth_module/getUserType"] === VENDOR;
+      const isCustomer =
+        this.$store.getters["auth_module/getUserType"] === CUSTOMER;
 
-      if (!isLoggedIn || !isVendor) {
+      if (!isLoggedIn || !isCustomer) {
         this.$router.push({ path: "/" });
       } else {
         return;

@@ -5,9 +5,9 @@ import router from './router';
 import store from './store';
 import './plugins/bootstrapVue';
 import './plugins/fontawesome.js';
+import './plugins/qrcode';
 
 Vue.config.productionTip = false
-console.log(store);
 new Vue({
   router,
   store,

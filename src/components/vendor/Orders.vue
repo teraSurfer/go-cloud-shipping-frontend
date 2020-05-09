@@ -64,7 +64,6 @@ export default {
         const response = await vendorServices.getOrders(
           "amit.vijapure@sjsu.edu"
         );
-        console.log(response.data);
         this.items = response.data.orders;
         this.rows = response.data.orders.length;
         this.loading = false;
@@ -73,7 +72,7 @@ export default {
       }
     },
     onRowSelected(item) {
-      console.log(item);
+      this.$router.push({path: `/vendor/orders/${item[0].id}/${item[0].u_email}`})
     }
   }
 };

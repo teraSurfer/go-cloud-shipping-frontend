@@ -5,7 +5,7 @@
         <h6 class="mb-0 text-center">{{getTitle}}</h6>
       </template>
       <b-nav pills vertical>
-        <b-nav-item exact-active-class="active" v-for="n of getNavs" :key="n.name" :to="n.path">
+        <b-nav-item active-class="active" v-for="n of getNavs" :key="n.name" :to="n.path">
           <span class="mr-2">
             <fa :icon="n.icon" />
           </span>

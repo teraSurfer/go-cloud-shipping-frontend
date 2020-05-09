@@ -8,4 +8,13 @@ const getOrders = (email) => {
   return ajax.get(`/orders?v_email=${email}`);
 }
 
-export { addVendor, getOrders };
+const updatePrice = (sourcedivision, destinationdivision, price, v_email) => {
+  return ajax.post(`/updateprice`, {
+    sourcedivision,
+    destinationdivision,
+    price,
+    v_email
+  });
+}
+
+export { addVendor, getOrders, updatePrice };

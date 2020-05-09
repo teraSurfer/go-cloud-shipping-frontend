@@ -31,7 +31,7 @@ const routes = [
         component: () => import('@/components/vendor/Orders.vue')
       },
       {
-        path: '/vendor/order/:id',
+        path: '/vendor/orders/:id/:u_email',
         name: 'VendorOrder',
         component: () => import('@/components/vendor/Order.vue')
       },

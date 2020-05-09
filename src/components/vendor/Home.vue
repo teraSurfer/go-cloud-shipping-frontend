@@ -88,8 +88,6 @@ export default {
       );
 
       const divResponse = await fetchDivisions();
-
-      console.log(divResponse);
       this.totalDivisions = divResponse.data.divisions.length;
       this.divisions = divResponse.data.divisions;
       this.divisions = this.divisions.map(d => ({
@@ -97,14 +95,12 @@ export default {
         text: d
       }));
       this.totalOrders = response.data.orders.length;
-      console.log(this.totalOrders);
       this.loading = false;
     },
     lowestPrice: async function() {
       this.formInput.loading = true;
       try {
         const data = await fetchLeastPrice(this.formInput.source, this.formInput.destination);
-        console.log(data);
         swal({title: 'Found Price', text: `Lowest Price is - ${data.data.least_price}`});
         this.formInput.loading = false;
       } catch (err) {
